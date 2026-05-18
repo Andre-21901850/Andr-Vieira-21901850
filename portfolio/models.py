@@ -129,3 +129,12 @@ class MakingOf(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Interesse(models.Model):
+    nome = models.CharField(max_length=200)
+    descricao = models.TextField(blank=True)
+    tecnologias = models.ManyToManyField(Tecnologia, related_name='interesses', blank=True)
+    projetos = models.ManyToManyField(Projeto, related_name='interesses', blank=True)
+
+    def __str__(self):
+        return self.nome
