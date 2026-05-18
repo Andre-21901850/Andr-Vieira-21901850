@@ -69,3 +69,21 @@ class Projeto(models.Model):
 
     def __str__(self):
         return self.nome
+
+class TFC(models.Model):
+    INTERESSE_CHOICES = [
+        (1, 'Baixo'),
+        (2, 'Médio'),
+        (3, 'Alto'),
+    ]
+
+    titulo = models.CharField(max_length=300)
+    autor = models.CharField(max_length=200)
+    ano = models.IntegerField()
+    descricao = models.TextField(blank=True)
+    tecnologias = models.ManyToManyField(Tecnologia, related_name='tfcs', blank=True)
+    link = models.URLField(blank=True)
+    nivel_interesse = models.IntegerField(choices=INTERESSE_CHOICES, default=2)
+
+    def __str__(self):
+        return self.titulo
