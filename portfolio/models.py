@@ -20,6 +20,7 @@ class Docente(models.Model):
     def __str__(self):
         return self.nome
 
+
 class UnidadeCurricular(models.Model):
     nome = models.CharField(max_length=200)
     codigo = models.CharField(max_length=20, blank=True)
@@ -33,6 +34,7 @@ class UnidadeCurricular(models.Model):
 
     def __str__(self):
         return self.nome
+
 
 class Tecnologia(models.Model):
     NIVEL_CHOICES = [
@@ -49,6 +51,21 @@ class Tecnologia(models.Model):
     link_website = models.URLField(blank=True)
     nivel_interesse = models.IntegerField(choices=NIVEL_CHOICES, default=3)
     categoria = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.nome
+
+
+class Projeto(models.Model):
+    nome = models.CharField(max_length=200)
+    descricao = models.TextField()
+    tecnologias = models.ManyToManyField(Tecnologia, related_name='projetos', blank=True)
+    uc = models.ForeignKey(UnidadeCurricular, on_delete=models.SET_NULL, null=True, blank=True, related_name='projetos')
+    imagem = models.ImageField(upload_to='projetos/', blank=True, null=True)
+    link_github = models.URLField(blank=True)
+    link_demo = models.URLField(blank=True)
+    conceitos_aplicados = models.TextField(blank=True)
+    data = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.nome
