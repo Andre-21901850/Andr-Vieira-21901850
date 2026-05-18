@@ -116,3 +116,16 @@ class Formacao(models.Model):
 
     def __str__(self):
         return self.nome
+
+class MakingOf(models.Model):
+    titulo = models.CharField(max_length=200)
+    descricao = models.TextField()
+    data = models.DateField()
+    fotografia = models.ImageField(upload_to='makingof/', blank=True, null=True)
+    erros_encontrados = models.TextField(blank=True)
+    decisoes_tomadas = models.TextField(blank=True)
+    uso_ia = models.TextField(blank=True)
+    entidade_relacionada = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.titulo
