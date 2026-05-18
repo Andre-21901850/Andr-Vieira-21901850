@@ -87,3 +87,32 @@ class TFC(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Competencia(models.Model):
+    NIVEL_CHOICES = [
+        (1, 'Básico'),
+        (2, 'Intermédio'),
+        (3, 'Avançado'),
+    ]
+
+    nome = models.CharField(max_length=200)
+    descricao = models.TextField(blank=True)
+    nivel = models.IntegerField(choices=NIVEL_CHOICES, default=1)
+    tecnologias = models.ManyToManyField(Tecnologia, related_name='competencias', blank=True)
+    projetos = models.ManyToManyField(Projeto, related_name='competencias', blank=True)
+
+    def __str__(self):
+        return self.nome
+
+
+class Formacao(models.Model):
+    nome = models.CharField(max_length=200)
+    instituicao = models.CharField(max_length=200, blank=True)
+    descricao = models.TextField(blank=True)
+    data_inicio = models.DateField()
+    data_fim = models.DateField(null=True, blank=True)
+    certificado = models.FileField(upload_to='certificados/', blank=True, null=True)
+    link = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.nome
