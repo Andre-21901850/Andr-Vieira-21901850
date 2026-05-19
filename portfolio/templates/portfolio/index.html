@@ -1,0 +1,21 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<h2>Bem-vindo ao meu Portfolio</h2>
+<section>
+    <article>
+        <header>
+            <h3>André Vieira</h3>
+            <p>Nº 21901850</p>
+        </header>
+        <section>
+            <h4>Licenciatura</h4>
+            <ul>
+                <li>{{ licenciatura.nome }}</li>
+                <li>{{ licenciatura.instituicao }}</li>
+                <li>Desde {{ licenciatura.ano_inicio }}</li>
+            </ul>
+        </section>
+    </article>
+</section>
+{% endblock %}

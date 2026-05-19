@@ -1,0 +1,31 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<h2>TFCs</h2>
+<section>
+    {% for tfc in tfcs %}
+    <article>
+        <header>
+            <h3>{{ tfc.titulo }}</h3>
+            <p>{{ tfc.autor }} | {{ tfc.ano }}</p>
+        </header>
+        <section>
+            <h4>Tecnologias</h4>
+            <ul>
+                {% for tecnologia in tfc.tecnologias.all %}
+                <li>{{ tecnologia.nome }}</li>
+                {% empty %}
+                <li>Sem tecnologias</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h4>Interesse</h4>
+            <ul>
+                <li>{{ tfc.get_nivel_interesse_display }}</li>
+            </ul>
+        </section>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
