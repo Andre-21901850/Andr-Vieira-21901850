@@ -1,0 +1,26 @@
+<!-- escola/templates/escola/turmas.html -->
+{% extends 'escola/base.html' %}
+
+{% block content %}
+<h2>Turmas</h2>
+<section>
+    {% for turma in turmas %}
+    <article>
+        <header>
+            <h3>{{ turma.nome }}</h3>
+            <p>Ano escolar: {{ turma.ano_escolar }}</p>
+        </header>
+        <section>
+            <h4>Alunos</h4>
+            <ul>
+                {% for aluno in turma.alunos.all %}
+                <li>{{ aluno.nome }}</li>
+                {% empty %}
+                <li>Sem alunos</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
