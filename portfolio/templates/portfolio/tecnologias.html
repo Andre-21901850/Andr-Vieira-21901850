@@ -2,7 +2,11 @@
 
 {% block content %}
 <h2>Tecnologias</h2>
+
+{% if is_gestor %}
 <a href="{% url 'tecnologia_criar' %}">+ Nova Tecnologia</a>
+{% endif %}
+
 <section>
     {% for tecnologia in tecnologias %}
     <article>
@@ -16,10 +20,12 @@
                 <li>{{ tecnologia.get_nivel_interesse_display }}</li>
             </ul>
         </section>
+        {% if is_gestor %}
         <section>
             <a href="{% url 'tecnologia_editar' tecnologia.id %}">Editar</a>
             <a href="{% url 'tecnologia_apagar' tecnologia.id %}">Apagar</a>
         </section>
+        {% endif %}
     </article>
     {% endfor %}
 </section>

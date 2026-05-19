@@ -1,0 +1,57 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<h2>Sobre esta Aplicação</h2>
+
+<section>
+  <h3>O que é?</h3>
+  <p>
+    Este portfolio digital foi desenvolvido no âmbito da unidade curricular de
+    <strong>Programação Web</strong> da Licenciatura em Engenharia Informática
+    da Universidade Lusófona. Tem como objetivo apresentar o percurso académico,
+    projetos, competências e formações do aluno André Vieira (nº 21901850).
+  </p>
+</section>
+
+<section>
+  <h3>Tecnologias Utilizadas</h3>
+  <ul>
+    <li><strong>Python 3.12</strong> — linguagem principal</li>
+    <li><strong>Django 6.0</strong> — framework web (MVT)</li>
+    <li><strong>SQLite</strong> — base de dados</li>
+    <li><strong>HTML5 / CSS3</strong> — templates e estilos</li>
+    <li><strong>GitHub / GitHub Codespaces</strong> — controlo de versões e ambiente de desenvolvimento</li>
+    <li><strong>Pillow</strong> — processamento de imagens</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Funcionalidades</h3>
+  <ul>
+    <li>Listagem de Unidades Curriculares, Projetos e Tecnologias</li>
+    <li>Formulários CRUD para Projetos, Tecnologias, Competências e Formações</li>
+    <li>Área de administração Django</li>
+    <li>Upload de imagens e ficheiros</li>
+    <li>Registo de Making Of com erros e decisões do percurso</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Como foi desenvolvido?</h3>
+  <p>
+    O desenvolvimento seguiu a arquitetura <strong>MVT (Model-View-Template)</strong> do Django.
+    Começou pela definição dos modelos de dados, seguido da configuração do admin,
+    depois as views e por fim os templates. O código foi escrito e testado em
+    GitHub Codespaces, com commits regulares para o repositório.
+  </p>
+</section>
+
+<section>
+  <h3>Acesso à Área de Administração</h3>
+  <p>
+    A área de administração está disponível em <a href="/admin/">/admin/</a>.<br>
+    <strong>Utilizador:</strong> admin<br>
+    <strong>Password:</strong> admin
+  </p>
+</section>
+{% endblock %}
