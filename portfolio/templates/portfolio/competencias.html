@@ -2,6 +2,7 @@
 
 {% block content %}
 <h2>Competências</h2>
+<a href="{% url 'competencia_criar' %}">+ Nova Competência</a>
 <section>
     {% for competencia in competencias %}
     <article>
@@ -28,6 +29,10 @@
                 <li>Sem projetos</li>
                 {% endfor %}
             </ul>
+        </section>
+        <section>
+            <a href="{% url 'competencia_editar' competencia.id %}">Editar</a>
+            <a href="{% url 'competencia_apagar' competencia.id %}">Apagar</a>
         </section>
     </article>
     {% endfor %}
